@@ -1,6 +1,6 @@
 {
   "key": "yapi-plugin",
-  "name": "yapi-plugin-import-rap2",
+  "name": "yapi-plugin-import-rap2-x",
   "version": "0.0.2",
   "description": "a yapi plugin for import projects from rap2",
   "main": "index.js",
