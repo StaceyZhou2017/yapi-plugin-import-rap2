@@ -31,9 +31,9 @@ class RapController extends baseController {
         return (ctx.body = yapi.commons.resReturn(null, 406, '没有权限'));
       }
     }
-    await axios.get(global.importRap.origin+'/backend/repository/get?id='+rap_project_id, {
+    await axios.get(global.importRap.origin+'/repository/get?id='+rap_project_id, {
       headers: {
-        "Cookie": "koa.sid=P8T0b_9E2vH_FHzJxW6jyQODJPRqsTm2; koa.sid.sig=27k_fX44DT1ZJ-dPicUMfEJ-tBk"
+        "Cookie": "koa.sid=tO2T7-t59SkMV2AqyCSUfxRQb-E9iFvs; koa.sid.sig=VVDgxcTdiwzNRc6odErZrQLYros"
       }
     }).then(res => {
       let data = res.data.data
