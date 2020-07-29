@@ -270,7 +270,7 @@ class ImportRap extends Component {
       <div className="g-row">
         <section className="news-box m-panel">
           <div className="Mockurl">
-            <span>rap2项目id：</span>
+            <span>rap2项目id2：</span>
             <Search
               placeholder="Rap project id"
               enterButton="执行导入"
