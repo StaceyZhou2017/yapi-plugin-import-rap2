@@ -17,24 +17,7 @@ const Search = Input.Search;
 class ImportRap extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      cookie:"",
-      project_id:""
-    }
   }
-
-  inputChange1(e){
-      this.setState({
-        project_id : e.target.value
-      })
-  };
-
-  inputChange2(e){
-      this.setState({
-        cookie : e.target.value
-      })
-  };
-
   static propTypes = {
     match: PropTypes.object,
     projectId: PropTypes.string
@@ -235,12 +218,8 @@ class ImportRap extends Component {
     })
   }
 
-  importFromRap = async() => {
+  importFromRap = async(id) => {
     let project_id = this.props.match.params.id
-    let cookie = this.props.cookie
-    console.log(project_id)
-    console.log(cookie)
-    console.log(this.props.project_id)
     // 先批量删除 当前项目下所有分类
     const { data = {} } = await axios.get(`/api/interface/list_menu?project_id=${project_id}`)
     const catList = data.data || []
@@ -248,7 +227,7 @@ class ImportRap extends Component {
       let item = catList[i]
       const result = await axios.post(`/api/interface/del_cat`, { catid: item._id})
     }
-    const rap2Result = await axios.get('/api/plugin/rap/get?id='+id+'&cookie='+ cookie +'&project_id='+project_id)
+    const rap2Result = await axios.get('/api/plugin/rap/get?id='+id+'&project_id='+project_id)
     if(rap2Result.data.errcode === 0){
       message.success(`远程获取RAP数据成功`);
       console.log('rap数据=>', rap2Result.data.data)
@@ -274,30 +253,21 @@ class ImportRap extends Component {
       })
     })
   }
+
   render() {
     return (
       <div className="g-row">
         <section className="news-box m-panel">
           <div className="Mockurl">
             <span>rap2项目id：</span>
-            <div><input
-              value={this.state.project_id}
-              onChange={this.inputChange1.bind(this)}
-              placeholder="请输入Rap project id"/></div>
-            
-           
-            <div><input
-              value={this.state.cookie}
-              onChange={this.inputChange2.bind(this)}
-              placeholder="请输入cookie"/></div>
-
-            <div><button
-              placeholder=""
-              text="执行导入"
-              onClick={() => this.importFromRap()}/></div>
+            <Search
+              placeholder="Rap project id"
+              enterButton="执行导入"
+              size="large"
+              onSearch={id => this.importFromRap(id)}
+            />
           </div>
           
-
           <div className="rap-help">
             <h3>* 项目 Id：</h3>
             <p>在rap2中点入项目之后，查看浏览器地址栏中的“id=”</p>
