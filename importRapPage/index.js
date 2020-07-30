@@ -24,14 +24,12 @@ class ImportRap extends Component {
   }
 
   inputChange1(e){
-    //当输入框的值变化的时候，修改state对象中的value值；
       this.setState({
         project_id : e.target.value
       })
   };
 
   inputChange2(e){
-    //当输入框的值变化的时候，修改state对象中的value值；
       this.setState({
         cookie : e.target.value
       })

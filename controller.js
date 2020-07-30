@@ -15,7 +15,7 @@ class RapController extends baseController {
    * @category interface
    * @foldnumber 10
    * @param {Number} id 接口id，不能为空
-   * @param {String} cookie 接口id，不能为空
+   * @param {String} cookie cookie，不能为空
    * @returns {Object}
    * **/
   async rapJson(ctx) {
@@ -34,13 +34,13 @@ class RapController extends baseController {
       }
     }
     // cookie: koa.sid=2svKdTFE26X5B9COBzudxq_tJ-KEDFSK; koa.sid.sig=DOgGZ4ogQlUVm2YX8bu_ZmuYk-E;
-    await axios.get(global.importRap.origin+'/repository/get?id='+rap_project_id, {
+    await axios.get(global.importRap.origin + '/repository/get?id=' + rap_project_id, {
       headers: {
         "Cookie": cookie
       }
     }).then(res => {
       let data = res.data.data
-      if(data && data.modules){
+      if (data && data.modules) {
         let modules = data.modules
         result = yapi.commons.resReturn(modules);
       } else {

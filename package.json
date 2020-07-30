@@ -1,7 +1,7 @@
 {
   "key": "yapi-plugin",
   "name": "yapi-plugin-import-rap2-cookie",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a yapi plugin for import projects from rap2",
   "main": "index.js",
   "keywords": [

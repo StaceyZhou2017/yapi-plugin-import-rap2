@@ -16,7 +16,6 @@
 
 3. 在yapi项目的菜单中会增加“rap2项目导入”菜单，填写rap project id ，执行即可。
 
-
 ### 说明：
 
 * Project Id：
