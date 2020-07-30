@@ -1,13 +1,13 @@
 
-# yapi-plugin-import-rap2
+# yapi-plugin-import-rap2-cookie
 
 在[yapi-plugin-import-rap](https://github.com/wxxcarl/yapi-plugin-import-rap) 基础上修改 定制rap2导入
-1. `yapi plugin --name yapi-plugin-import-rap2`
+1. `yapi plugin --name yapi-plugin-import-rap2-cookie`
 
 2. 在config.json中新增插件配置
     <pre>
     "plugins": [{
-        "name": "import-rap2",
+        "name": "import-rap2-cookie",
         "options": {
             "rapOrigin": "http://192.168.1.100:8000" // rap2项目地址
         }
