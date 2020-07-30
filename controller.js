@@ -33,10 +33,9 @@ class RapController extends baseController {
         return (ctx.body = yapi.commons.resReturn(null, 406, '没有权限'));
       }
     }
-    // cookie: koa.sid=2svKdTFE26X5B9COBzudxq_tJ-KEDFSK; koa.sid.sig=DOgGZ4ogQlUVm2YX8bu_ZmuYk-E;
-    await axios.get(global.importRap.origin + '/repository/get?id=' + rap_project_id, {
+    await axios.get(global.importRap.origin+'/backend/repository/get?id='+rap_project_id, {
       headers: {
-        "Cookie": cookie
+        "Cookie": "koa.sid=P8T0b_9E2vH_FHzJxW6jyQODJPRqsTm2; koa.sid.sig=27k_fX44DT1ZJ-dPicUMfEJ-tBk"
       }
     }).then(res => {
       let data = res.data.data
